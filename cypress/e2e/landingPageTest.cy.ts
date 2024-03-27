@@ -3,15 +3,15 @@ import { Cookie } from "./utils/cookie"
 
 
 before(()=>{
-  Cookie.setDesktopCookies()
+  Cookie.setCookies()
 })
 
-describe('template spec', () => {
-  it('passes', () => {
+describe('landing Page Test', () => {
+  it('test', () => {
 
-    cy.visit('/')
-    cy.get('[data-gui="search-cars-button"]').click()
-    cy.get('[data-testid="search-desktop-result-count"]').should('contain',' cars found')
-
+    cy.visit('')
+    cy.get('[data-testid="cookie-policy-manage-dialog-accept-button"]').should('have.text','Allow all cookies')
+    cy.get('[data-testid="cookie-policy-manage-dialog-accept-button"]').click()
+    cy.get('#loginbutton').should('be.visible')
   })
 })
