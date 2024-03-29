@@ -24,7 +24,7 @@ jobs:
       run: |
         docker run --rm cypress-test-browser npm run cypress:run -b chromium
         
-   test:     
+  test:     
     runs-on: ubuntu-latest
     name: Cypress Tests with electron browser
     steps:
