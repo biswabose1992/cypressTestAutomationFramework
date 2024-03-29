@@ -5,6 +5,8 @@ on: push
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
+    container:
+      image: cypress/browsers:node-20.9.0-chrome-118.0.5993.88-1
     steps:
       - name: Checkout
         uses: actions/checkout@v4
