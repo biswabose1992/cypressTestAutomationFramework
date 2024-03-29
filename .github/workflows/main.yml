@@ -11,9 +11,6 @@ on:
 jobs:
   chrome:
     runs-on: ubuntu-latest
-    env:
-      using: 'node20'
-      main: 'main.js'
     name: Cypress Tests with chromium browser
     steps:
     - name: Checkout code
@@ -29,18 +26,10 @@ jobs:
         
   electron:     
     runs-on: ubuntu-latest
-    env:
-      using: 'node20'
-      main: 'main.js'
     name: Cypress Tests with electron browser
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-      
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-          node-version: 20
       
     - name: Build custom Docker image
       run: |
