@@ -10,7 +10,7 @@ package-lock.json
 /coverage
 /cypress/downloads
 /cypress/videos
-/cypress/screenshots
+/cypress/screenshots/*
 /cypress/mochawesome-report
 /cypress/output.json
 
