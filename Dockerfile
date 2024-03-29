@@ -14,10 +14,8 @@ ENV CYPRESS_BROWSER=chromium
 
 WORKDIR /tests
 
-COPY ./package.json .
-COPY ./cypress.config.ts .
-COPY ./cypress ./cypress
+COPY . .
 
 RUN npm i
 
-ENTRYPOINT ["npx", "cypress", "run"]
+CMD ["npx", "cypress", "run"]

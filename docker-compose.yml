@@ -1,0 +1,9 @@
+version: 'cypress-docker-v1'
+services: 
+
+  cypress-electron:
+   image: cypress/included:13.6.6
+   command: "--browser electron"
+   working_dir: /cypress
+   volumes:
+     - ./:/cypress
