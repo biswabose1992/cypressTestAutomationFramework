@@ -11,7 +11,22 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+    name: Cypress Tests with chromium browser
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Build custom Docker image
+      run: |
+        docker build -t cypress-test-browser .
+      
+    - name: Run Cypress tests
+      run: |
+        docker run --rm cypress-test-browser npm run cypress:run -b chromium
+        
+   test:     
+    runs-on: ubuntu-latest
+    name: Cypress Tests with electron browser
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -23,3 +38,4 @@ jobs:
     - name: Run Cypress tests
       run: |
         docker run --rm cypress-test-browser npm run cypress:run
+
