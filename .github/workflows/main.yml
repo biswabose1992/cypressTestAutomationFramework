@@ -1,17 +1,37 @@
-name: Cypress Tests using Cypress Docker Image
+name: Cypress Tests
 
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  cypress-run:
-    runs-on: ubuntu-22.04
-    container:
-      image: cypress/browsers:node-20.9.0-chrome-118.0.5993.88-1-ff-118.0.2-edge-118.0.2088.46-1
-      options: --user 1001
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      docker:
+        image: docker:latest
+        options: --privileged
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          browser: chrome
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build Docker images
+        run: docker-compose -f docker-compose.yml build
+
+      - name: Start containers
+        run: docker-compose -f docker-compose.yml up -d
+
+      - name: Wait for services to start
+        run: sleep 30 # Adjust as needed based on service startup time
+
+      - name: Run Cypress tests
+        run: docker-compose -f docker-compose.yml run --rm cypress
+
+      - name: Stop containers
+        run: docker-compose -f docker-compose.yml down
