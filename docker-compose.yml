@@ -1,7 +1,4 @@
-name: cypress
-
 services: 
-
   cypress-electron:
    image: cypress-test-browser:latest
    command: "--browser electron"
