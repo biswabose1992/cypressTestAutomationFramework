@@ -9,7 +9,7 @@ on:
       - main  # Replace 'main' with your branch name
 
 jobs:
-  test:
+  chrome:
     runs-on: ubuntu-latest
     name: Cypress Tests with chromium browser
     steps:
@@ -24,7 +24,7 @@ jobs:
       run: |
         docker run --rm cypress-test-browser npm run cypress:run -b chromium
         
-  test:     
+  electron:     
     runs-on: ubuntu-latest
     name: Cypress Tests with electron browser
     steps:
