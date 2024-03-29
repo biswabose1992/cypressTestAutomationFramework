@@ -3,39 +3,40 @@ name: Cypress Tests
 on:
   push:
     branches:
-      - main  # Replace 'main' with your branch name
+      - main
   pull_request:
     branches:
-      - main  # Replace 'main' with your branch name
+      - main
 
 jobs:
-  chrome:
+  test:
     runs-on: ubuntu-latest
-    name: Cypress Tests with chromium browser
+
+    services:
+      docker:
+        image: docker:latest
+        options: --privileged
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-      
-    - name: Build custom Docker image
-      run: |
-        docker build -t cypress-test-browser .
-      
-    - name: Run Cypress tests
-      run: |
-        docker run --rm cypress-test-browser npm run cypress:run -b chromium
-        
-  electron:     
-    runs-on: ubuntu-latest
-    name: Cypress Tests with electron browser
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-      
-    - name: Build custom Docker image
-      run: |
-        docker build -t cypress-test-browser .
-      
-    - name: Run Cypress tests
-      run: |
-        docker run --rm cypress-test-browser npm run cypress:run
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build Docker images
+        run: docker-compose -f docker-compose.yml build
+
+      - name: Start containers
+        run: docker-compose -f docker-compose.yml up -d
+
+      - name: Wait for services to start
+        run: sleep 30 # Adjust as needed based on service startup time
+
+      - name: Run Cypress tests
+        run: docker-compose -f docker-compose.yml run --rm cypress
+
+      - name: Stop containers
+        run: docker-compose -f docker-compose.yml down
+
+
+
+
 
