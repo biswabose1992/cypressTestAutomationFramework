@@ -14,7 +14,7 @@ jobs:
     name: Cypress Tests with chromium browser
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       
     - name: Build custom Docker image
       run: |
@@ -29,7 +29,7 @@ jobs:
     name: Cypress Tests with electron browser
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       
     - name: Build custom Docker image
       run: |
