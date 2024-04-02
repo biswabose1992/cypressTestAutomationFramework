@@ -1,7 +1,11 @@
 services: 
   cypress:
-   image: biswabose1992/cypressimage:latest
-   command: "--browser electron"
-   working_dir: /cypress
-   volumes:
-     - ./:/cypress
+    image: "cypress/included:13.6.6"
+    container_name: cypress
+    # "cypress/included" images have entrypoint set to globally installed cypress
+    # so the command can simply add any arguments
+    command: "--browser electron"
+    working_dir: /
+    volumes:
+      - ./cypress:/cypress
+      - ./cypress.config.ts:/cypress.config.ts
