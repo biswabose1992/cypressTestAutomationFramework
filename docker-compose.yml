@@ -1,6 +1,6 @@
 services: 
   cypress:
-    image: "cypress/included:13.6.6"
+    image: "biswabose1992/cypressimage:latest"
     container_name: cypress
     # "cypress/included" images have entrypoint set to globally installed cypress
     # so the command can simply add any arguments
