@@ -25,7 +25,7 @@ jobs:
         docker run --rm cypress-test-browser npm run cypress:run
 
     - name: Save Test Artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: test-reports
         path: /mochawesome-report
