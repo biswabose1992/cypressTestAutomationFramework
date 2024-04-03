@@ -11,8 +11,8 @@ package-lock.json
 /cypress/downloads
 /cypress/videos
 /cypress/screenshots/*
-/cypress/mochawesome-report
-/cypress/output.json
+/mochawesome-report
+/output.json
 
 
 

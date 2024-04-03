@@ -2,6 +2,15 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   pageLoadTimeout: 8000,
+  screenshotsOnRunFailure: true,
+  videos:true,
+  reporter: 'mochawesome',
+  reporterOptions: {
+      overwrite: false,
+      html: false,
+      json: true
+  },
+  screenshotsFolder: 'mochawesome-report/assets',
 e2e: {
     setupNodeEvents() {
       // implement node event listeners here
