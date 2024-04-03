@@ -1,2 +1,2 @@
 # cypressTestAutomationFramework
-Docker based Cypress Test Automation Framework in Azure Devops Pipeline
+Docker based Cypress Test Automation Framework using GitHub Actions workflow
