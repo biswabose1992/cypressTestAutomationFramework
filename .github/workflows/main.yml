@@ -24,14 +24,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build Docker images
-        run: docker-compose -f docker-compose.yml build
-
       - name: Start containers
         run: docker-compose -f docker-compose.yml up -d
-
-      - name: Wait for services to start
-        run: sleep 30 # Adjust as needed based on service startup time
 
       - name: Run Cypress tests
         run: docker-compose -f docker-compose.yml run --rm cypress
