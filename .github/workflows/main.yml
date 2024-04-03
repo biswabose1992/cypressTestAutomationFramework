@@ -27,8 +27,8 @@ jobs:
     - name: Save Test Artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: reports
-        path: /tests/mochawesome-report
+        name: test-reports
+        path: /mochawesome-report
 
 
 
