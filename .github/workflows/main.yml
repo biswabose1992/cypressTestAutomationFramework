@@ -24,5 +24,11 @@ jobs:
       run: |
         docker run --rm cypress-test-browser npm run cypress:run
 
+    - name: Archive test artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: cypress-reports
+        path: cypress/reports
+
 
 
