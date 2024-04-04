@@ -10,7 +10,7 @@ on:
 
 jobs:   
   electron:     
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     name: Cypress Tests with electron browser
     container:
       image: biswabose1992/cypress-test-browser:latest
