@@ -1,19 +1,17 @@
-# Use the Cypress included image as base
-FROM cypress/included:13.6.6
+# Use the cypress/included image
+FROM cypress/included:latest
 
+# Set the working directory inside the container
+WORKDIR /usr/src/app
 
-# Install Chromium
-RUN apt-get update && apt-get install -y \
-    chromium \
-    chromium-driver \
-    --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/*
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
+# Install dependencies
+RUN npm install
 
-WORKDIR /tests
-
+# Copy the rest of the application code to the working directory
 COPY . .
 
-RUN npm i
-
-CMD ["npm", "run","cypress", "test-and-report"]
+# Run Cypress tests
+CMD ["npm", "run", "test"]
