@@ -4,7 +4,7 @@ module.exports = defineConfig({
   pageLoadTimeout: 8000,
   screenshotsOnRunFailure: true,
   videos:true,
-  reporter: '../node_modules/mochawesome/src/mochawesome.js',
+  reporter: 'mochawesome',
   reporterOptions: {
       reportDir: "mochawesome-report",
       overwrite: false,
