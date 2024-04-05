@@ -14,10 +14,10 @@ jobs:
  
       - name: Run Cypress tests
         run: |
-          docker run --rm biswabose1992/cypress-test-amd64 npm run cypress:run
+          docker run --rm /Users/Biswadeep.Bose/workspace/learning/cypressTestAutomationFramework/mochawesome-report:/tests/mochawesome-report  biswabose1992/cypress-test-arm64 npm run cypress:run
 
       - name: List Contents of Directory
-        run: ls -l /tests/mochawesome-report
+        run: ls -l /cypressTestAutomationFramework/mochawesome-report
 
       - name: Save Test Artifacts
         uses: actions/upload-artifact@v4
