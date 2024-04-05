@@ -16,4 +16,7 @@ COPY . .
 
 RUN npm i
 
+# Install Mochawesome reporter globally
+RUN npm install -g mochawesome
+
 CMD ["npm", "run","cypress", "test-and-report","--reporter", "mochawesome"]
