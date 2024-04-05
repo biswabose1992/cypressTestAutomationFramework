@@ -11,13 +11,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
  
       - name: Run Cypress tests
         run: |
-          docker run --rm biswabose1992/cypress-test-browser npm run cypress:run
+          docker run --rm biswabose1992/cypress-test-amd64 npm run cypress:run
 
       - name: Save Test Artifacts
         uses: actions/upload-artifact@v4
