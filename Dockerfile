@@ -16,4 +16,4 @@ COPY . .
 
 RUN npm i
 
-CMD ["npm", "run","cypress", "test-and-report"]
+CMD ["npm", "run","cypress", "test-and-report","--reporter", "mochawesome"]
