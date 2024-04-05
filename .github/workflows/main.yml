@@ -22,7 +22,8 @@ jobs:
 
       - name: Merge Mochawesome reports
         run: |
-          npx mochawesome-merge mochawesome-report/*.json > output.json && npx marge output.json
+          sudo npx mochawesome-merge mochawesome-report/*.json > output.json && sudo npx marge output.json
+
           
 
       - name: Save Test Artifacts
