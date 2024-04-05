@@ -22,7 +22,8 @@ jobs:
 
       - name: Merge Mochawesome reports
         run: |
-          npx mochawesome-merge mochawesome-report/*.json > merged-report.json
+          npx mochawesome-merge mochawesome-report/*.json > output.json && npx marge output.json
+          
 
       - name: Save Test Artifacts
         uses: actions/upload-artifact@v4
