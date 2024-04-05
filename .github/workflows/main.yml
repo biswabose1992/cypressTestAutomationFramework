@@ -21,7 +21,6 @@ jobs:
         if: success() || failure()
         with:
           name: test-reports
-          path: tests/mochawesome-report
-
+          path: /tests/mochawesome-report/*
 
 
