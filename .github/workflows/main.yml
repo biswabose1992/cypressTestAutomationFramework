@@ -21,6 +21,7 @@ jobs:
            docker run --rm -v $PWD:/tests -v ${PWD}/mochawesome-report:/tests/mochawesome-report  biswabose1992/cypress-test-amd64 npm run cypress:run --reporter mochawesome
 
       - name: Merge Mochawesome reports
+        if: success() || failure()
         run: |
           sudo npx mochawesome-merge mochawesome-report/*.json > output.json && sudo npx marge output.json
 
