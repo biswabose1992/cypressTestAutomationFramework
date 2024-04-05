@@ -16,6 +16,10 @@ jobs:
         run: |
           docker build --platform linux/amd64 -t biswabose1992/cypress-test1-amd64 .
  
+      - name: Install dependencies
+        run: |
+          npm install mochawesome
+          
       - name: Run Cypress tests
         run: |
           docker run --rm -v $PWD:/tests biswabose1992/cypress-test1-amd64
